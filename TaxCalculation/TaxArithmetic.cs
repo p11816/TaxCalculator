@@ -24,8 +24,7 @@ namespace TaxCalculation
             double count1 = baseValueDigit * 25;
             double count2 = complaintPriceDigit * 5 / 100;
             double count3 = limit2 * 5 / 100;
-            double count4 = limit2 * 5 / 100;
-            double count5 = (complaintPriceDigit - limit2) * 3 / 100;
+            double count4 = (limit3 - limit2) * 3 / 100;
             if (complaintPriceDigit < limit1)
             {
                 return (baseValueDigit * 25).ToString();
@@ -48,7 +47,7 @@ namespace TaxCalculation
             }
             else
             {                
-                double restTax = count4 + count5;
+                double restTax = count3 + count4;
                 double currentTax = complaintPriceDigit * 1 / 100;
                 if (restTax > currentTax)
                 {
