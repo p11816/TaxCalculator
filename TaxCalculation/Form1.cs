@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TaxCalculation
 {
     public partial class Form1 : Form
-    {
+    {        
         List<Panel> panelList = new List<Panel>();
+        List<TextBox> tbList = new List<TextBox>();
+        Form2 PersonalInfo = new Form2();
+
         public Form1()
         {
             InitializeComponent();
@@ -40,6 +44,12 @@ namespace TaxCalculation
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            StreamWriter oStream = new StreamWriter(@"PersonalInfo.txt");
+            for (int i = 0; i < tbList.Count; i++)
+            {
+                oStream.WriteLine(tbList[i].Text);
+            }
+            oStream.Close();
             Application.Exit();
         }
 
@@ -53,6 +63,34 @@ namespace TaxCalculation
             panelList.Add(panel1);
             panelList.Add(panel2);
             panelList.Add(panel3);
+            tbList.Add(Form2.tb1F2);
+            tbList.Add(Form2.tb2F2);
+            tbList.Add(Form2.tb3F2);
+            tbList.Add(Form2.tb4F2);
+            tbList.Add(Form2.tb5F2);
+
+            if (File.Exists(@"BaseValue.txt") == true)
+            {
+                StreamReader iStream = new StreamReader(@"BaseValue.txt");
+                string buffer = iStream.ReadToEnd();
+                textBox5.Text = buffer;
+                textBox6.Text = buffer;
+                iStream.Close();
+            }
+            if (File.Exists(@"PersonalInfo.txt") == true)
+            {
+                StreamReader iStream = new StreamReader(@"PersonalInfo.txt");
+                string textLine;
+                int index = 0;
+                do
+                {
+                    textLine = iStream.ReadLine();
+                    tbList[index].Text = textLine;
+                    ++index;
+                    textLine = "";
+                } while (iStream.Peek() != -1);
+                iStream.Close();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -68,6 +106,16 @@ namespace TaxCalculation
         private void button5_Click(object sender, EventArgs e)
         {
             textBox7.Text = TaxArithmetic.Tax3Count(textBox6.Text, textBox8.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {            
+            PersonalInfo.ShowDialog();            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
