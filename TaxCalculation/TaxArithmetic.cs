@@ -62,22 +62,29 @@ namespace TaxCalculation
 
         public static string Tax3Count(string baseValue, string complaintPrice)
         {
-            double baseValueDigit = Convert.ToDouble(baseValue);
-            double complaintPriceDigit = Convert.ToDouble(complaintPrice);
-            double limit1 = baseValueDigit * 100;
-            double limit2 = baseValueDigit * 300;
-            if (complaintPriceDigit < limit1)
-            {
-                return (baseValueDigit * 2).ToString();
+            //try
+            //{
+                double baseValueDigit = Convert.ToDouble(baseValue);
+                double complaintPriceDigit = Convert.ToDouble(complaintPrice);
+                double limit1 = baseValueDigit * 100;
+                double limit2 = baseValueDigit * 300;
+                if (complaintPriceDigit < limit1)
+                {
+                    return (baseValueDigit * 2).ToString();
+                }
+                else if (complaintPriceDigit >= limit1 && complaintPriceDigit < limit2)
+                {
+                    return (baseValueDigit * 5).ToString();
+                }
+                else
+                {
+                    return (baseValueDigit * 7).ToString();
+                }
             }
-            else if (complaintPriceDigit >= limit1 && complaintPriceDigit < limit2)
-            {
-                return (baseValueDigit * 5).ToString();
-            }
-            else
-            {
-                return (baseValueDigit * 7).ToString();
-            }    
-        }
+            //catch (FormatException Ex)
+            //{
+                
+            //}
+        //}
     }
 }
