@@ -12,7 +12,13 @@ using System.IO;
 namespace TaxCalculation
 {
     public partial class Form1 : Form
-    {        
+    {
+        //Properties for accessing Form1 TextBoxes
+        public static TextBox tb1F1 { get; private set; }
+        public static TextBox tb2F1 { get; private set; }
+        public static TextBox tb3F1 { get; private set; }
+       
+
         List<Panel> panelList = new List<Panel>();
         List<TextBox> tbList = new List<TextBox>();       
         Form2 PersonalInfo = new Form2();
@@ -36,6 +42,9 @@ namespace TaxCalculation
         public Form1()
         {
             InitializeComponent();
+            tb1F1 = textBox1;
+            tb2F1 = textBox4;
+            tb3F1 = textBox8;       
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)

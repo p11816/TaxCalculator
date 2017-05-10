@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Исковое заявл. имущ. хар-ра");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Общие суды", new System.Windows.Forms.TreeNode[] {
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Исковое заявл. имущ. хар-ра");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Заявление приказное");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Экономические суды", new System.Windows.Forms.TreeNode[] {
-            treeNode33,
-            treeNode34});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Исковое заявл. имущ. хар-ра");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Общие суды", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Исковое заявл. имущ. хар-ра");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Заявление приказное");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Экономические суды", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -82,24 +82,24 @@
             this.treeView1.Location = new System.Drawing.Point(27, 68);
             this.treeView1.Margin = new System.Windows.Forms.Padding(4);
             this.treeView1.Name = "treeView1";
-            treeNode31.Name = "Node2";
-            treeNode31.Tag = "0";
-            treeNode31.Text = "Исковое заявл. имущ. хар-ра";
-            treeNode32.Name = "Node0";
-            treeNode32.Tag = "-1";
-            treeNode32.Text = "Общие суды";
-            treeNode33.Name = "Node3";
-            treeNode33.Tag = "1";
-            treeNode33.Text = "Исковое заявл. имущ. хар-ра";
-            treeNode34.Name = "Node5";
-            treeNode34.Tag = "2";
-            treeNode34.Text = "Заявление приказное";
-            treeNode35.Name = "Node1";
-            treeNode35.Tag = "-2";
-            treeNode35.Text = "Экономические суды";
+            treeNode11.Name = "Node2";
+            treeNode11.Tag = "0";
+            treeNode11.Text = "Исковое заявл. имущ. хар-ра";
+            treeNode12.Name = "Node0";
+            treeNode12.Tag = "-1";
+            treeNode12.Text = "Общие суды";
+            treeNode13.Name = "Node3";
+            treeNode13.Tag = "1";
+            treeNode13.Text = "Исковое заявл. имущ. хар-ра";
+            treeNode14.Name = "Node5";
+            treeNode14.Tag = "2";
+            treeNode14.Text = "Заявление приказное";
+            treeNode15.Name = "Node1";
+            treeNode15.Tag = "-2";
+            treeNode15.Text = "Экономические суды";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode35});
+            treeNode12,
+            treeNode15});
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;
             this.treeView1.ShowRootLines = false;
@@ -117,7 +117,7 @@
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(289, 68);
+            this.panel1.Location = new System.Drawing.Point(290, 67);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(464, 237);
             this.panel1.TabIndex = 1;
@@ -177,7 +177,7 @@
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Location = new System.Drawing.Point(290, 68);
+            this.panel2.Location = new System.Drawing.Point(291, 67);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(463, 235);
             this.panel2.TabIndex = 5;

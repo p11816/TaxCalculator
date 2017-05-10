@@ -10,60 +10,76 @@ namespace TaxCalculation
     {
         public static string Tax1Count(string complaintPrice)
         {
-            double complaintPriceDigit = Convert.ToDouble(complaintPrice);
-            return (complaintPriceDigit * 5 / 100).ToString();
+            try
+            {
+                double complaintPriceDigit = Convert.ToDouble(complaintPrice);
+                return (complaintPriceDigit * 5 / 100).ToString();
+            }
+            catch (FormatException Ex)
+            {
+                Form1.tb1F1.BackColor = System.Drawing.Color.Red;
+                return "Некорректно указана цена иска";
+            }
         }
         
         public static string Tax2Count(string baseValue, string complaintPrice)
         {
-            double baseValueDigit = Convert.ToDouble(baseValue);
-            double complaintPriceDigit = Convert.ToDouble(complaintPrice);
-            double limit1 = baseValueDigit * 100;
-            double limit2 = baseValueDigit * 1000;
-            double limit3 = baseValueDigit * 10000;
-            double count1 = baseValueDigit * 25;
-            double count2 = complaintPriceDigit * 5 / 100;
-            double count3 = limit2 * 5 / 100;
-            double count4 = (limit3 - limit2) * 3 / 100;
-            if (complaintPriceDigit < limit1)
+            try
             {
-                return (baseValueDigit * 25).ToString();
-            }
-            else if (complaintPriceDigit >= limit1 && complaintPriceDigit < limit2)
-            {
-                if (count1 > count2)
+                double baseValueDigit = Convert.ToDouble(baseValue);
+                double complaintPriceDigit = Convert.ToDouble(complaintPrice);
+                double limit1 = baseValueDigit * 100;
+                double limit2 = baseValueDigit * 1000;
+                double limit3 = baseValueDigit * 10000;
+                double count1 = baseValueDigit * 25;
+                double count2 = complaintPriceDigit * 5 / 100;
+                double count3 = limit2 * 5 / 100;
+                double count4 = (limit3 - limit2) * 3 / 100;
+                if (complaintPriceDigit < limit1)
                 {
-                    return count1.ToString();
+                    return (baseValueDigit * 25).ToString();
+                }
+                else if (complaintPriceDigit >= limit1 && complaintPriceDigit < limit2)
+                {
+                    if (count1 > count2)
+                    {
+                        return count1.ToString();
+                    }
+                    else
+                    {
+                        return count2.ToString();
+                    }
+                }
+                else if (complaintPriceDigit >= limit2 && complaintPriceDigit < limit3)
+                {
+                    double restTax = (complaintPriceDigit - limit2) * 3 / 100;
+                    return (count3 + restTax).ToString();
                 }
                 else
                 {
-                    return count2.ToString();
+                    double restTax = count3 + count4;
+                    double currentTax = complaintPriceDigit * 1 / 100;
+                    if (restTax > currentTax)
+                    {
+                        return restTax.ToString();
+                    }
+                    else
+                    {
+                        return currentTax.ToString();
+                    }
                 }
             }
-            else if (complaintPriceDigit >= limit2 && complaintPriceDigit < limit3)
-            {                
-                double restTax = (complaintPriceDigit - limit2) * 3 / 100;
-                return (count3 + restTax).ToString();
-            }
-            else
-            {                
-                double restTax = count3 + count4;
-                double currentTax = complaintPriceDigit * 1 / 100;
-                if (restTax > currentTax)
-                {
-                    return restTax.ToString();
-                }
-                else
-                {
-                    return currentTax.ToString();
-                }
+            catch (FormatException Ex)
+            {
+                Form1.tb2F1.BackColor = System.Drawing.Color.Red;
+                return "Некорректно указана цена иска";
             }
         }
 
         public static string Tax3Count(string baseValue, string complaintPrice)
         {
-            //try
-            //{
+            try
+            {
                 double baseValueDigit = Convert.ToDouble(baseValue);
                 double complaintPriceDigit = Convert.ToDouble(complaintPrice);
                 double limit1 = baseValueDigit * 100;
@@ -81,10 +97,11 @@ namespace TaxCalculation
                     return (baseValueDigit * 7).ToString();
                 }
             }
-            //catch (FormatException Ex)
-            //{
-                
-            //}
-        //}
+            catch (FormatException Ex)
+            {
+                Form1.tb3F1.BackColor = System.Drawing.Color.Red;                
+                return "Некорректно указана цена иска";
+            }            
+        }
     }
 }
